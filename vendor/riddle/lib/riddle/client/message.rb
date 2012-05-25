@@ -17,7 +17,7 @@ module Riddle
       
       # Append a string's length, then the string itself
       def append_string(str)
-        t = if RUBY_VERSION >= '1.9'
+        t = if RUBY_VERSION < '1.9'
               str
             else
               str.dup.force_encoding('ASCII-8BIT')
