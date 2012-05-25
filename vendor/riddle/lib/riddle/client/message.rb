@@ -17,7 +17,12 @@ module Riddle
       
       # Append a string's length, then the string itself
       def append_string(str)
-        @message << [str.send(@size_method)].pack('N') + str
+        t = if RUBY_VERSION >= '1.9'
+              str
+            else
+              str.dup.force_encoding('ASCII-8BIT')
+            end
+        @message << [t.send(@size_method)].pack('N') + t
       end
       
       # Append an integer

@@ -16,7 +16,7 @@ module Riddle
         len = next_int
         result = @str[@marker, len]
         @marker += len
-        
+        return result.force_encoding('UTF-8') if RUBY_VERSION >= '1.9'
         return result
       end
       
