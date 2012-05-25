@@ -382,7 +382,7 @@ module Ultrasphinx
       
       def strip_bogus_characters(s)
         # Used to remove some garbage before highlighting
-        s.gsub(/<.*?>|\.\.\.|\342\200\246|\n|\r/, " ").gsub(/http.*?( |$)/, ' ') if s
+        s.gsub(/<.*?>|\.\.\.|\342\200\246|\n|\r/u, " ").gsub(/http.*?( |$)/u, ' ') if s
       end
       
       def strip_query_commands(s)
